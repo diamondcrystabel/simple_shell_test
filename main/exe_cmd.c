@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * execute_bin - executes commands
+ * execute_cmd - executes commands
  * @tokens: array of arguments
- * @path
+ * @path: full path to command
  */
 
 void execute_cmd(char **tokens, char *path)
@@ -23,18 +23,10 @@ void execute_cmd(char **tokens, char *path)
 	{
 		execve(path, tokens, environ);
 		i = 0;
-		/*while (tokens[i])
-		{
-			free(tokens[i]);
-			i++;
-		}*/
-		/*free(tokens);*/
 		exit(0);
 	}
 	if (child > 0)
 	{
-		/*while (tokens[i])
-			free(tokens[i++]);*/
 		wait(&stat);
 	}
 	if (child == -1)

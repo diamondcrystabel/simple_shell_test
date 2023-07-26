@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * getpath - gets PATH
+ * @path: command to check if it's in PATH
+ * Return: full path to command
+ */
 
 char *getpath(char *path)
 {
@@ -11,7 +16,8 @@ char *getpath(char *path)
 
 	pa = _getenv("PATH");
 	token = strdup(pa);
-	fol = strtok(token, ":");
+	fol = strtok(token, "=");
+	fol = strtok(NULL, ":");
 
 	while (fol)
 	{
@@ -26,9 +32,7 @@ char *getpath(char *path)
 		}
 
 		fol = strtok(NULL, ":");
-		/*printf("%s %ld\n", fol, _strlen(fol));*/
 	}
 	free(token);
-	free(path);
 	return (NULL);
 }

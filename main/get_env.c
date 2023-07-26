@@ -1,28 +1,35 @@
 #include "shell.h"
 
+/**
+ * _getenv - finds a path
+ * @name: name of environment variable
+ * Return: a string
+ */
 
 char *_getenv(char *name)
 {
 	int i = 0;
-	char *tok;
 
 	while (environ[i])
 	{
 		/*tok = strtok(environ[i], "=");*/
 		/*printf("%s and %s\n", tok, name);*/
-		char *ptr;
+		/*ptr = strdup(environ[i]);*/
 		if (_strncmp(environ[i], name, _strlen(name)) == 0)
 		{
-			ptr = strdup(environ[i]);
-			strtok(ptr, "=");
-			tok = strtok(NULL, "=");
-			return (tok);
+			return (environ[i]);
 		}
-
 		i++;
 	}
 	return (NULL);
 }
+
+/**
+ * _strcmp - compares two strings
+ * @s1: string
+ * @s2: string
+ * Return: int to determine comparism
+ */
 
 int _strcmp(char *s1, const char *s2)
 {
@@ -35,6 +42,14 @@ int _strcmp(char *s1, const char *s2)
 	}
 	return (0);
 }
+
+/**
+ * _strncmp - compares the first n bytes of two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: length to compare in each string
+ * Return: int to determine comparism
+ */
 
 int _strncmp(char *s1, const char *s2, size_t n)
 {

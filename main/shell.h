@@ -10,14 +10,24 @@
 #include <sys/stat.h>
 #define vo (void)
 #define NOT_INBUILT 4096
+#define PROMPT "($) "
 
 extern int errno;
 extern char **environ;
 
-typedef struct inbuilts {
+/**
+ * struct inbuilts - inbuilt command structure
+ * @name: name of command
+ * @func: name of function
+ *
+ * Description: Inbuilt command's structure
+ */
+
+typedef struct inbuilts
+{
 	char *name;
-	int (*func)(void);
-} inbuit_t;
+	int (*func)(char **);
+} inbuilt_t;
 
 size_t _strlen(char *str);
 void getlne(char *prompt, char *);
@@ -32,6 +42,12 @@ char *_strcat(char *dest, char *src);
 char *getpath(char *path);
 void printerr(int err, char *cmd, char *prog);
 int _strncmp(char *s1, const char *s2, size_t n);
+int inbuilts(char **tokens);
+int __exit(char **tokens);
+int _env(char **tokens);
+void _free(char **arr);
+void sig_h(int signal);
+int _atoi(char *s);
 
 
 #endif

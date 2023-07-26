@@ -2,6 +2,8 @@
 
 /**
  * main - a simple shell
+ * @ac: argument number
+ * @av: argument vectors
  * Return: 0
  */
 
@@ -11,7 +13,6 @@ int main(int __attribute__ ((unused)) ac, char **av)
 	char *prompt = "";
 	char *msg = "Can't open ";
 
-	printf("Shell\n");
 	if (ac != 1)
 	{
 		write(STDOUT_FILENO, av[0], _strlen(av[0]));

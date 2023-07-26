@@ -3,7 +3,7 @@
 /**
  * _strcpy - copies a string
  * @s: string to be copied
- * @new-str: new string
+ * @new_str: new string
  * Return: s
  */
 
